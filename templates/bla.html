@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="static/index.css">
+
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
@@ -259,7 +262,18 @@ h4{
 
 .w{
     width:135px;
-}</style>
+}
+
+
+.camscreen{
+    display:flex;
+    justify-content: center;
+    margin:20px;
+}
+
+
+
+    </style>
     <script>
     window.addEventListener('DOMContentLoaded', (event) => {
         console.log('Your Mum');
@@ -383,25 +397,32 @@ h4{
             }
         }
 
+        function camera() {
+            document.getElementsByClassName('main')[0].style.display = 'none';
+            document.getElementsByClassName('camscreen')[0].style.display = 'flex';
+        }
+
+
+
 </script>
 </head>
 <body>
     <div class="navbar">
         <div class="logo">
-            <img src="logo.svg" height="62px">
-            <img src="cam.svg" height="29px" class="camera">
+            <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/logo.svg" height="62px">
+            <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/cam.svg" height="29px" class="camera" onclick="camera()">
         </div>
     </div>
 
     <div class="main">
         <div class="toplinklist">
             <h3 class="underline">Help</h3>
-            <div class="edit"><img src="edit.svg" height="20px" padding="3px;"><h3 class="right underline">Edit / Add info</h3></div>
+            <div class="edit"><img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/edit.svg" height="20px" padding="3px;"><h3 class="right underline">Edit / Add info</h3></div>
         </div>
 
         <div class="bar-main">
             <div class="bordered_box" id="search">
-                <img src="search.svg" height="20px" class="search">
+                <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/search.svg" height="20px" class="search">
                 <input class=search_input type="text" id='searchbar' onkeyup="search()" placeholder="Search...">
             </div>
 
@@ -415,7 +436,7 @@ h4{
 
             </div>
 
-            <div class="bordered_box w" onclick="c()">
+            <div class="bordered_box w" onclick="c()" id="amazon">
                 <h4>Clear Filters</h4>
             </div>
 
@@ -425,22 +446,22 @@ h4{
         {% for item in books %}
         <div class="bar2">
             <div class="box w40">
-                <img src="dot1.svg" height="20px" class="search">
+                <img src="{{ item.img }}" height="20px" class="search">
                 <h4>{{ item.title }} : {{ item.author }}</h4>
             </div>
 
             <div class="read">
                 <div class="box ro" >
                     {% if item.jRead %}
-                        <img src="tick.svg" height="40px" class="tick">
+                        <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/tick.svg" height="40px" class="tick">
                     {% else %}
-                        <img src="cross.svg" height="40px" class="cross">
+                        <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/cross.svg" height="40px" class="cross">
                     {% endif %}
 
                     {% if item.eRead %}
-                        <img src="tick.svg" height="40px" class="tick">
+                        <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/tick.svg" height="40px" class="tick">
                     {% else %}
-                        <img src="cross.svg" height="40px" class="cross">
+                        <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/cross.svg" height="40px" class="cross">
                     {% endif %}
                 </div>
 
@@ -449,15 +470,15 @@ h4{
             <div class="owned">
                 <div class="box ro">
                     {% if item.jOwns %}
-                        <img src="tick.svg" height="40px" class="tick">
+                        <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/tick.svg" height="40px" class="tick">
                     {% else %}
-                        <img src="cross.svg" height="40px" class="cross">
+                        <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/cross.svg" height="40px" class="cross">
                     {% endif %}
 
                     {% if item.eOwns %}
-                        <img src="tick.svg" height="40px" class="tick">
+                        <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/tick.svg" height="40px" class="tick">
                     {% else %}
-                        <img src="cross.svg" height="40px" class="cross">
+                        <img src="https://raw.githubusercontent.com/john-montgomery2003/book/9ee931d3c44dfe00c8b8e5a4713fddd4f64c2617/templates/cross.svg" height="40px" class="cross">
                     {% endif %}
                 </div>
             </div>
@@ -468,12 +489,29 @@ h4{
         </div>
         {% endfor %}
 
-
-
-
-
     </div>
 
+    <div class="camscreen">
+        <div id="qr-reader" style="width: 90%"></div>
+    </div>
 
 </body>
+
+ <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+<script>function onScanSuccess(decodedText, decodedResult) {
+            console.log(`Code scanned = ${decodedText}`, decodedResult);
+        }
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "qr-reader", { fps: 10, qrbox: 250 });
+        html5QrcodeScanner.render(onScanSuccess);
+
+        fetch(`http://openlibrary.org/api/volumes/brief/isbn/{decodedText}.json`)
+          .then(response => response.json())
+          .then(data => console.log(data.data.title));
+
+
+
+
+
+</script>
 </html>
