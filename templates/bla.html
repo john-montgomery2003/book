@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <title>Anything But Orange</title>
+    <style>
+
+body{
+    background: #C4A77D;
+    margin:0;
+    padding:0;
+    font-family: Roboto,sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.navbar{
+    background: #70877F;
+    padding:5px;
+}
+
+
+
+.main{
+    margin:30px;
+}
+
+.toplinklist{
+    display: flex;
+    justify-content: space-between;
+}
+
+.underline{
+    text-decoration: underline;
+
+}
+
+h3{
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    color: #2F2963;
+}
+.edit{
+    display: flex;
+    align-items:center;
+}
+
+.bordered_box{
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid #2F2963;
+    background: #70877F;
+    height: 40px;
+    padding:0;
+    margin:0;
+    display: flex;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+
+    border: 2px solid #70877F;
+    border-radius: 10px;
+    background: #70877F;
+    height: 40px;
+    padding:0;
+    margin:0;
+    display: flex;
+    align-content: center;
+}
+
+.boxtext{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: 35px;
+
+}
+
+.bar-main{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.search_input{
+    margin:0;
+    color: #2F2963;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    width:100%;
+    background: none;
+    border:none;
+}
+.search {
+    padding: 10px 5px 10px 5px;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #2F2963;
+}
+#search{
+  width: 40%;
+}
+h4{
+    margin: 10px;
+    color: #2F2963;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+    margin-top:15px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius:13px;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #2F2963;
+  background-color: #C4A77D;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #907a5c;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #70877F;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkboxes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+.w40{
+    width: 40%;
+}
+
+.owned{
+    width:128px;
+    }
+.read{
+    width:128px;
+}
+
+@media(max-width: 900px){
+    .camera {
+        float: right;
+        margin: 20px;
+    }
+     .owned{
+        display: none;
+    }
+    .read{
+        display: none;
+    }
+    #amazon{
+        display: none;
+    }
+    #search{
+      width: 100%;
+    }
+    .w40{
+    width: 100%;
+}
+}
+
+@media(min-width: 900px){
+    .camera {
+        display: none;
+    }
+
+}
+
+.bar2{
+    margin:10px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ro{
+    width:124px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.w{
+    width:135px;
+}</style>
+    <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        console.log('Your Mum');
+
+        button = document.getElementById('readbox');
+        button.style.backgroundColor = "rgb(112, 135, 127)";
+
+        button = document.getElementById('ownbox');
+        button.style.backgroundColor = "rgb(112, 135, 127)";
+    });
+
+    function c() {
+      console.log('hie');
+        button = document.getElementById('readbox');
+        button.style.backgroundColor = "rgb(112, 135, 127)";
+
+        button = document.getElementById('ownbox');
+        button.style.backgroundColor = "rgb(112, 135, 127)";
+
+
+        var ul = document.getElementsByClassName("bar2");
+
+
+        document.getElementById("searchbar").value = '';
+
+         for (i = 0; i < ul.length; i++) {
+             ul[i].style.display = "";
+         }
+    }
+
+    function search() {
+      // Declare variables
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("searchbar");
+      filter = input.value.toUpperCase();
+      li = document.getElementsByClassName("bar2");
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("h4")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+    function read() {
+        // Declare variables
+        var input, filter, li, a, i, ul, input1, filter1, a1;
+        ul = document.getElementsByClassName("bar2");
+        button = document.getElementById('readbox');
+
+
+        if (button.style.backgroundColor === "rgb(112, 135, 127)")
+        {
+            // Loop through all list items, and hide those who don't match the search query
+            button.style.backgroundColor = "rgb(92, 115, 107)";
+            for (i = 0; i < ul.length; i++) {
+
+                input1 = document.getElementById("searchbar");
+                filter1 = input1.value.toUpperCase();
+                a1 = ul[i].getElementsByTagName("h4")[0];
+
+                li = ul[i].getElementsByClassName("read")[0];
+                a = li.getElementsByTagName("img")[0];
+                b = li.getElementsByTagName("img")[1];
+
+                if ((a.className === "tick" || b.className === "tick")&&(a1.innerHTML.toUpperCase().indexOf(filter1) > -1)) {
+                    ul[i].style.display = "";
+                } else {
+                    ul[i].style.display = "none";
+                }
+                button = document.getElementById('ownbox');
+                button.style.backgroundColor = "rgb(112, 135, 127)";
+            }
+        }
+        else {
+            button.style.backgroundColor ="rgb(112, 135, 127)";
+            for (i = 0; i < ul.length; i++) {
+                    ul[i].style.display = "";
+                }
+            }
+        }
+
+    function own() {
+         // Declare variables
+        var input, filter, li, a, i, ul, input1, filter1, a1;
+        ul = document.getElementsByClassName("bar2");
+        button = document.getElementById('ownbox');
+
+
+        if (button.style.backgroundColor === "rgb(112, 135, 127)")
+        {
+            // Loop through all list items, and hide those who don't match the search query
+            button.style.backgroundColor = "rgb(92, 115, 107)";
+            for (i = 0; i < ul.length; i++) {
+
+                input1 = document.getElementById("searchbar");
+                filter1 = input1.value.toUpperCase();
+                a1 = ul[i].getElementsByTagName("h4")[0];
+
+                li = ul[i].getElementsByClassName("own")[0];
+                a = li.getElementsByTagName("img")[0];
+                b = li.getElementsByTagName("img")[1];
+
+                if ((a.className === "tick" || b.className === "tick")&&(a1.innerHTML.toUpperCase().indexOf(filter1) > -1)) {
+                    ul[i].style.display = "";
+                } else {
+                    ul[i].style.display = "none";
+                }
+                button = document.getElementById('readbox');
+                button.style.backgroundColor = "rgb(112, 135, 127)";
+            }
+        }
+        else {
+            button.style.backgroundColor ="rgb(112, 135, 127)";
+            for (i = 0; i < ul.length; i++) {
+                    ul[i].style.display = "";
+                }
+            }
+        }
+
+</script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.svg" height="62px">
+            <img src="cam.svg" height="29px" class="camera">
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="toplinklist">
+            <h3 class="underline">Help</h3>
+            <div class="edit"><img src="edit.svg" height="20px" padding="3px;"><h3 class="right underline">Edit / Add info</h3></div>
+        </div>
+
+        <div class="bar-main">
+            <div class="bordered_box" id="search">
+                <img src="search.svg" height="20px" class="search">
+                <input class=search_input type="text" id='searchbar' onkeyup="search()" placeholder="Search...">
+            </div>
+
+            <div class="read" onclick="read()">
+                <div class="bordered_box" id="readbox"><h4>Read? (J/E)</h4></div>
+
+            </div>
+
+            <div class="owned" onclick="own()">
+                <div class="bordered_box" id="ownbox"><h4>Own? (J/E)</h4></div>
+
+            </div>
+
+            <div class="bordered_box w" onclick="c()">
+                <h4>Clear Filters</h4>
+            </div>
+
+        </div>
+
+
+        {% for item in books %}
+        <div class="bar2">
+            <div class="box w40">
+                <img src="dot1.svg" height="20px" class="search">
+                <h4>{{ item.title }} : {{ item.author }}</h4>
+            </div>
+
+            <div class="read">
+                <div class="box ro" >
+                    {% if item.jRead %}
+                        <img src="tick.svg" height="40px" class="tick">
+                    {% else %}
+                        <img src="cross.svg" height="40px" class="cross">
+                    {% endif %}
+
+                    {% if item.eRead %}
+                        <img src="tick.svg" height="40px" class="tick">
+                    {% else %}
+                        <img src="cross.svg" height="40px" class="cross">
+                    {% endif %}
+                </div>
+
+            </div>
+
+            <div class="owned">
+                <div class="box ro">
+                    {% if item.jOwns %}
+                        <img src="tick.svg" height="40px" class="tick">
+                    {% else %}
+                        <img src="cross.svg" height="40px" class="cross">
+                    {% endif %}
+
+                    {% if item.eOwns %}
+                        <img src="tick.svg" height="40px" class="tick">
+                    {% else %}
+                        <img src="cross.svg" height="40px" class="cross">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="box w" id="amazon">
+                <a href="{{ item.amazonlink }}"><h4>Amazon Link</h4></a>
+            </div>
+        </div>
+        {% endfor %}
+
+
+
+
+
+    </div>
+
+
+</body>
+</html>

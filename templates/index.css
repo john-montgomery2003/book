@@ -1,0 +1,251 @@
+body{
+    background: #C4A77D;
+    margin:0;
+    padding:0;
+    font-family: Roboto,sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.navbar{
+    background: #70877F;
+    padding:5px;
+}
+
+
+
+.main{
+    margin:30px;
+}
+
+.toplinklist{
+    display: flex;
+    justify-content: space-between;
+}
+
+.underline{
+    text-decoration: underline;
+
+}
+
+h3{
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    color: #2F2963;
+}
+.edit{
+    display: flex;
+    align-items:center;
+}
+
+.bordered_box{
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid #2F2963;
+    background: #70877F;
+    height: 40px;
+    padding:0;
+    margin:0;
+    display: flex;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+
+    border: 2px solid #70877F;
+    border-radius: 10px;
+    background: #70877F;
+    height: 40px;
+    padding:0;
+    margin:0;
+    display: flex;
+    align-content: center;
+}
+
+.boxtext{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 30px;
+    line-height: 35px;
+
+}
+
+.bar-main{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.search_input{
+    margin:0;
+    color: #2F2963;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+    width:100%;
+    background: none;
+    border:none;
+}
+.search {
+    padding: 10px 5px 10px 5px;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #2F2963;
+}
+#search{
+  width: 40%;
+}
+h4{
+    margin: 10px;
+    color: #2F2963;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 20px;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+    margin-top:15px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius:13px;
+  height: 25px;
+  width: 25px;
+  border: 1px solid #2F2963;
+  background-color: #C4A77D;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #907a5c;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #70877F;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkboxes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+.w40{
+    width: 40%;
+}
+
+.owned{
+    width:128px;
+    }
+.read{
+    width:128px;
+}
+
+@media(max-width: 900px){
+    .camera {
+        float: right;
+        margin: 20px;
+    }
+     .owned{
+        display: none;
+    }
+    .read{
+        display: none;
+    }
+    #amazon{
+        display: none;
+    }
+    #search{
+      width: 100%;
+    }
+    .w40{
+    width: 100%;
+}
+}
+
+@media(min-width: 900px){
+    .camera {
+        display: none;
+    }
+
+}
+
+.bar2{
+    margin:10px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ro{
+    width:124px;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.w{
+    width:135px;
+}

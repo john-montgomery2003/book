@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <title>Anything But Orange</title>
+
+    <script>
+    function search() {
+      // Declare variables
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("searchbar");
+      filter = input.value.toUpperCase();
+      li = document.getElementsByClassName("bar2");
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("h4")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+    function read() {
+      // Declare variables
+      var input, filter, li, a, i, ul;
+      ul = document.getElementsByClassName("bar2");
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < ul.length; i++) {
+          li = ul[i].getElementsByClassName("read")[0];
+        a = li.getElementsByTagName("img")[0];
+        b = li.getElementsByTagName("img")[1];
+        console.log(a.className === "tick" || b.className === "tick");
+        console.log(ul[i]);
+        if (a.className === "tick" || b.className === "tick") {
+          ul[i].style.display = "";
+        } else {
+          ul[i].style.display = "none";
+        }
+      }
+      search();
+    }
+    function own() {
+      // Declare variables
+      var input, filter, li, a, i, ul;
+      ul = document.getElementsByClassName("bar2");
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < ul.length; i++) {
+          li = ul[i].getElementsByClassName("owned")[0];
+        a = li.getElementsByTagName("img")[0];
+        b = li.getElementsByTagName("img")[1];
+        if (a.className === "tick" || b.className === "tick") {
+          ul[i].style.display = "";
+        } else {
+          ul[i].style.display = "none";
+        }
+      }
+      search();
+    }
+</script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.svg" height="62px">
+            <img src="cam.svg" height="29px" class="camera">
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="toplinklist">
+            <h3 class="underline">Help</h3>
+            <div class="edit"><img src="edit.svg" height="20px" padding="3px;"><h3 class="right underline">Edit / Add info</h3></div>
+        </div>
+
+        <div class="bar-main">
+            <div class="bordered_box" id="search">
+                <img src="search.svg" height="20px" class="search">
+                <input class=search_input type="text" id='searchbar' onkeyup="search()" placeholder="Search...">
+            </div>
+
+            <div class="read" onclick="read()">
+                <div class="bordered_box" id="readbox"><h4>Read? (J/E)</h4></div>
+
+            </div>
+
+            <div class="owned" onclick="own()">
+                <div class="bordered_box" id="ownbox"><h4>Own? (J/E)</h4></div>
+
+            </div>
+
+            <div class="bordered_box" id="amazon">
+                <h4>Amazon Link</h4>
+            </div>
+
+        </div>
+
+
+
+        <div class="bar2" id="BookID">
+            <div class="box w40">
+                <img src="dot1.svg" height="20px" class="search">
+                <h4>1984 : George Orwell</h4>
+            </div>
+
+            <div class="read">
+                <div class="box ro" >
+                    <img src="cross.svg" height="40px" class="cross">
+                    <img src="tick.svg" height="40px" class="tick">
+                </div>
+
+            </div>
+
+            <div class="owned">
+                <div class="box ro">
+                    <img src="cross.svg" height="40px" class="cross">
+                    <img src="tick.svg" height="40px" class="tick">
+                </div>
+            </div>
+
+            <div class="box" id="amazon">
+                <h4>Amazon Link</h4>
+            </div>
+        </div>
+
+        <div class="bar2">
+            <div class="box w40">
+                <img src="dot1.svg" height="20px" class="search">
+                <h4>1892 : George Orwell</h4>
+            </div>
+
+            <div class="read">
+                <div class="box ro" >
+                    <img src="cross.svg" height="40px" class="cross">
+                    <img src="cross.svg" height="40px" class="cross">
+                </div>
+
+            </div>
+
+            <div class="owned">
+                <div class="box ro">
+                    <img src="tick.svg" height="40px" class="tick">
+                    <img src="tick.svg" height="40px" class="tick">
+                </div>
+            </div>
+
+            <div class="box" id="amazon">
+                <h4>Amazon Link</h4>
+            </div>
+        </div>
+        <div class="bar2">
+            <div class="box w40">
+                <img src="dot1.svg" height="20px" class="search">
+                <h4>1984 : George Orwell</h4>
+            </div>
+
+            <div class="read">
+                <div class="box ro" >
+                    <img src="cross.svg" height="40px" class="cross">
+                    <img src="cross.svg" height="40px" class="cross">
+                </div>
+
+            </div>
+
+            <div class="owned">
+                <div class="box ro">
+                    <img src="tick.svg" height="40px" class="tick">
+                    <img src="tick.svg" height="40px" class="tick">
+                </div>
+            </div>
+
+            <div class="box" id="amazon">
+                <h4>Amazon Link</h4>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+</html>
