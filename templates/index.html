@@ -9,59 +9,58 @@
     <title>Anything But Orange</title>
 
     <script>
-    function search() {
-      // Declare variables
-      var input, filter, ul, li, a, i;
-      input = document.getElementById("searchbar");
-      filter = input.value.toUpperCase();
-      li = document.getElementsByClassName("bar2");
+    const search = () => {
+      const input = document.querySelector("#searchbar");
+      const filter = input.value.toUpperCase();
+      const lists = document.querySelectorAll(".bar2");
 
       // Loop through all list items, and hide those who don't match the search query
-      for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("h4")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          li[i].style.display = "";
+      lists.forEach((item) => {
+        const a = item.getElementsByTagName("h4")[0];
+        const query = a.textContent.toUpperCase();
+
+        if (filter.includes(query)) {
+          item.style.display = "";
         } else {
-          li[i].style.display = "none";
+          item.style.display = "none";
         }
-      }
-    }
-    function read() {
+      });
+    };          
+    
+    const read = () => {
       // Declare variables
-      var input, filter, li, a, i, ul;
-      ul = document.getElementsByClassName("bar2");
+      const lists = document.querySelectorAll(".bar2");
 
       // Loop through all list items, and hide those who don't match the search query
-      for (i = 0; i < ul.length; i++) {
-          li = ul[i].getElementsByClassName("read")[0];
-        a = li.getElementsByTagName("img")[0];
-        b = li.getElementsByTagName("img")[1];
-        console.log(a.className === "tick" || b.className === "tick");
-        console.log(ul[i]);
+      lists.forEach((ul) => {
+        const li = ul.getElementsByClassName("read")[0];
+        const [a, b] = li.getElementsByTagName("img")
+
         if (a.className === "tick" || b.className === "tick") {
-          ul[i].style.display = "";
+          ul.style.display = "";
         } else {
-          ul[i].style.display = "none";
+          ul.style.display = "none";
         }
-      }
+      });
+
       search();
-    }
-    function own() {
+    };
+        
+    const own = () => {
       // Declare variables
-      var input, filter, li, a, i, ul;
-      ul = document.getElementsByClassName("bar2");
+      const lists = document.querySelectorAll(".bar2");
 
       // Loop through all list items, and hide those who don't match the search query
-      for (i = 0; i < ul.length; i++) {
-          li = ul[i].getElementsByClassName("owned")[0];
-        a = li.getElementsByTagName("img")[0];
-        b = li.getElementsByTagName("img")[1];
+      lists.forEach((ul) => {
+        const li = ul.getElementsByClassName("owned")[0];
+        const [a, b] = li.getElementsByTagName("img");
+
         if (a.className === "tick" || b.className === "tick") {
-          ul[i].style.display = "";
+          ul.style.display = "";
         } else {
-          ul[i].style.display = "none";
+          ul.style.display = "none";
         }
-      }
+    })
       search();
     }
 </script>
@@ -88,21 +87,16 @@
 
             <div class="read" onclick="read()">
                 <div class="bordered_box" id="readbox"><h4>Read? (J/E)</h4></div>
-
             </div>
 
             <div class="owned" onclick="own()">
                 <div class="bordered_box" id="ownbox"><h4>Own? (J/E)</h4></div>
-
             </div>
 
             <div class="bordered_box" id="amazon">
                 <h4>Amazon Link</h4>
             </div>
-
         </div>
-
-
 
         <div class="bar2" id="BookID">
             <div class="box w40">
@@ -115,7 +109,6 @@
                     <img src="cross.svg" height="40px" class="cross">
                     <img src="tick.svg" height="40px" class="tick">
                 </div>
-
             </div>
 
             <div class="owned">
@@ -141,7 +134,6 @@
                     <img src="cross.svg" height="40px" class="cross">
                     <img src="cross.svg" height="40px" class="cross">
                 </div>
-
             </div>
 
             <div class="owned">
@@ -166,7 +158,6 @@
                     <img src="cross.svg" height="40px" class="cross">
                     <img src="cross.svg" height="40px" class="cross">
                 </div>
-
             </div>
 
             <div class="owned">
@@ -180,12 +171,6 @@
                 <h4>Amazon Link</h4>
             </div>
         </div>
-
-
-
-
     </div>
-
-
-</body>
+  </body>
 </html>
